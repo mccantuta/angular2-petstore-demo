@@ -1,0 +1,13 @@
+<div>
+    <h2>Categories</h2>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr *ngFor="let category of categories">
+            <td class="small">{{category.name}}</td>
+            <td class="small">{{category.description}}</td>
+        </tr>
+    </table>
+</div>
