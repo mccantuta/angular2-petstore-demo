@@ -10,6 +10,12 @@ import { MenuComponent } from './menu/menu.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { PageNotFoundComponent } from './common/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './common/home.component';
+import { AuthenticationService } from './login/authentication.service';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { LocalStorageService } from './common/local-storage.service';
+import { HeaderService } from './common/header.service';
 
 @NgModule({
   imports: [
@@ -23,9 +29,16 @@ import { PageNotFoundComponent } from './common/page-not-found.component';
     MenuComponent,
     CategoryComponent,
     ProductComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent,
+    HomeComponent
   ],
-  providers: [],
+  providers: [
+    LocalStorageService,
+    AuthenticationService,
+    AuthenticationGuard,
+    HeaderService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

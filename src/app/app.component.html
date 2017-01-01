@@ -1,17 +1,24 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">{{title}}</a>
+      <a class="navbar-brand" href="/home">{{title}}</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a *ngIf="userLogged" href="/login" (click)="logout()">Logout</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2 col-xs-12 ">
+    <div class="col-md-2 col-xs-12 " *ngIf="userLogged">
       <menu-component></menu-component>
     </div>
-    <div class="col-md-10 col-xs-6">
+    <div [ngClass]="userLogged ? 'col-md-10 col-xs-6' : 'col-md-12 col-xs12' ">
        <router-outlet></router-outlet>
     </div>
   </div>

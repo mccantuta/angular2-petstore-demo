@@ -1,0 +1,13 @@
+<div class="container">
+    <form class="form-signin" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <h2 class="form-signin-heading">Log In</h2>
+        <input type="text" class="form-control" placeholder="User" name="user" 
+            [(ngModel)]="model.user" #user="ngModel" required autofocus/>
+        <div *ngIf="f.submitted && !user.valid" class="help-block">Username is required</div>
+        <input type="password" class="form-control" placeholder="Password" 
+            name="password" [(ngModel)]="model.password" #password="ngModel" required>
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+    </form>
+</div>
